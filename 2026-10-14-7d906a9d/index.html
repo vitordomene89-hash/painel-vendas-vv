@@ -281,21 +281,7 @@ window.dash={colors:['#4a8ae8','#e8833a','#5cb87a','#b07cd8'],
   </section>
 
 
-  <section class="vv-sec" id="detalhe">
-    <h2 class="vv-h2">Todas as lojas</h2>
-    <div class="vv-card">
-      <div class="vv-tablewrap" style="max-height:none">
-        <table class="vv-table vv-all" id="tb-lojas" data-source="lojas lojas_calc fpmd_margem canal" data-row-key="loja"><thead></thead><tbody></tbody></table>
-      </div>
-    </div>
-  </section>
 
-  <section class="vv-sec" id="passos">
-    <h2 class="vv-h2">Próximos passos sugeridos</h2>
-    <div class="vv-card">
-      <ol class="vv-steps" id="steps" data-source="analise"></ol>
-    </div>
-  </section>
 </div>
 
 <script>
@@ -673,7 +659,7 @@ dash.calc('mensal_calc', {
   function drawReads() {
     const box = $('#reads'), steps = $('#steps');
     const an = dash.data('analise');
-    if (an.status === 'ok') {
+    if (an.status === 'ok' && steps) {
       steps.innerHTML = '';
       an.data.filter(r => r.tipo === 'acao').forEach(r => {
         const li = document.createElement('li');
